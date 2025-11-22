@@ -7,8 +7,11 @@ class GeometrySolver:
         pass
 
     # this function is essentially a 4 bar linkage solver given an angle and 3 sides
-    # a1 is the angle between l1 and l4 which have a vertex at (0,0)
+    # a1 is the angle between l1 and l4 which have a vertex at point A = (0,0)
     # C is the intersection of l2 and l3
+    # D is the intersection of l3 and l4 and location is at (0,-l4)
+    # B is the intersection of l1 and l2 and can be found trivially as a1 and A are known
+    # this setup creates a system of circles that needs to be solved to find the location of point C
     def Find_C(self,a_A,l1,l2,l3,l4):
         # need to use epsilon to avoid rounding errors causing sqrt(-#)
         # and to avoid rounding errors causing comparisons to be false when should be true
@@ -160,3 +163,4 @@ class GeometrySolver:
         plt.axis("equal")
         plt.title(label=name)
         plt.show()
+
